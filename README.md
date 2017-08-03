@@ -59,7 +59,10 @@ This week your branch name will be: `1-splash-yourname.`
 
 #### Week 3: class 1 review:
 
-* In this class we finished the last things needed for the implementation of the recyclewview and began work on the dialog fragment. 
+* In this class we finished the last things needed for the implementation of the recyclerview and began work on the dialog fragment. 
 
-* we learned that there are different ways to work with dialogs in android, we can create our own custom one, or use an alert dialog provided by the system. We can also create a fragment or a fragment dialog. 
+* We learned that there are different ways to work with dialogs in android, we can create our own custom one, or use an alert dialog provided by the system. We can also create a fragment or a fragment dialog. 
 
+#### Week 4: class 1 review:
+
+* In this class we added the realm database to enable saving new notes, to allow them to be edited and to have them persist.
