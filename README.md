@@ -39,3 +39,27 @@ This week your branch name will be: `1-splash-yourname.`
 * This first class we touched upon the import feature on android studio, we learned that when ever we need to import a project onto android studio we need to choose the folder that contains the gradle files at the root. In our case this is  in `NotePad/NotePad/`
 * We also talked about different approaches when it comes to building features, ideally we want to build them correctly and the best way possible the first time arround, but a very real concern is that at work we will have deadlines to accomplish and we need to know how to make the best tradeoffs possible. In the github issue I denoted what would be the best way to build a splashscreen had we the time, but since we have only a month, we will instead try to build this using views. In the github issue I will have updated the task with how the splash screen should look, using custom views.
 * During `Solve` we tried the "given a string, replace all the ' ' characters with '%20'" problem. We found out that there are a couple of different apporaches on solving this and left it open so that students would try to solve it in their own time. 
+
+#### Week 1: class 2 review:
+
+* no class
+
+#### Week 2: class 1 review:
+
+* In this class we reviewd object animators and  went over the different parts of a recyclerview touching on how they're put together.
+  * The layout manager: A layout manager manages they way your layout is laid on the screen, either a grid, linerly or you can create your own custom one.
+  * A View Holder: By subclassing the View Holder class, here you denileate how your individual item layouts will look like, you create an xml with your layout and inflate it in this class.
+  * Adapter: Your adapter will adapt your data to your viewholders. This is done thorugh three methods, the `getItemCount()`, `onCreateViewHolder()` and `onBindViewHolder()` which are self explanatory names. 
+
+* At the end of class we went over a shift matrix problem where the input was a String[] where n >= 1 and each item in the collection corresponds to dots and letters, ie: ".a.b." and a String with directions "LDRU". The objective of the problem was to parse this string given to us so that we would shift letters to "open":('.') spaces by replacing the dots with the letter correspoing in the proper direction.
+    
+#### Week 2: class 2 review:
+
+* In this class we built out the basics of the recycler view, we also created a Floating action button with the intention of having a click listener on it that when clicked would add a new item to the recycler view.
+
+#### Week 3: class 1 review:
+
+* In this class we finished the last things needed for the implementation of the recyclewview and began work on the dialog fragment. 
+
+* we learned that there are different ways to work with dialogs in android, we can create our own custom one, or use an alert dialog provided by the system. We can also create a fragment or a fragment dialog. 
+
