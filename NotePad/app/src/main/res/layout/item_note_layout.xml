@@ -1,62 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<android.support.v7.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/item_note"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="5dp"
+    app:cardUseCompatPadding="true"
     android:backgroundTint="#FDFCF8">
 
-    <android.support.v7.widget.CardView
-        android:id="@+id/item_note"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
-        <RelativeLayout
+        <LinearLayout
+            android:id="@+id/test"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <LinearLayout
-                android:id="@+id/test"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingLeft="20dp"
-                android:paddingTop="15dp"
-                android:paddingBottom="15dp">
-
-                <TextView
-                    android:id="@+id/title_tv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:ellipsize="end"
-                    android:maxLines="1"
-                    android:layout_weight="1"
-
-                    android:paddingRight="10dp"
-
-                    android:textColor="#5A6571"
-                    android:textSize="20sp"/>
-
-                <ImageButton
-                    android:id="@+id/delete_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-
-                    android:src="@drawable/ic_delete_grey600_24dp"/>
-            </LinearLayout>
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="15dp"
+            android:paddingLeft="20dp"
+            android:paddingTop="15dp">
 
             <TextView
-                android:id="@+id/text_tv"
-                android:layout_width="match_parent"
+                android:id="@+id/title_tv"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/test"
-                android:maxLines="5"
+                android:layout_weight="1"
                 android:ellipsize="end"
-                android:paddingBottom="15dp"
-                android:paddingLeft="20dp"
-                android:paddingRight="30dp"
-                android:textColor="#8A939D"/>
+                android:maxLines="1"
+                android:paddingRight="10dp"
+                android:textColor="#5A6571"
+                android:textSize="20sp"/>
 
-        </RelativeLayout>
-    </android.support.v7.widget.CardView>
-</LinearLayout>
+            <ImageButton
+                android:id="@+id/delete_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/colorPrimary"
+                android:src="@drawable/ic_delete_grey600_24dp"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/text_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/test"
+            android:ellipsize="end"
+            android:maxLines="5"
+            android:paddingBottom="15dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="30dp"
+            android:textColor="#8A939D"/>
+
+    </RelativeLayout>
+</android.support.v7.widget.CardView>

@@ -18,9 +18,7 @@
         android:imeOptions="actionDone"
         android:inputType="text|textMultiLine"
         android:hint="@string/edittext_title_hint"
-        android:textSize="24sp"
         android:paddingTop="8dp"
-        android:paddingStart="8dp"
         android:paddingEnd="8dp"/>
 
     <EditText

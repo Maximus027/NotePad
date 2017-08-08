@@ -5,7 +5,7 @@ import java.io.Serializable;
 import io.realm.RealmObject;
 
 /**
- * Created by maxrosado on 7/16/17.
+ * Model class for Note Objects.
  */
 
 public class Note extends RealmObject implements Serializable {
