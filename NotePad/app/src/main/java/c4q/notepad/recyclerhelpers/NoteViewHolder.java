@@ -1,10 +1,13 @@
 package c4q.notepad.recyclerhelpers;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.view.ViewPropertyAnimator;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -29,9 +32,12 @@ public class NoteViewHolder extends RecyclerView.ViewHolder {
     private static final String NOTE_DIALOG = "NoteDialog";
     private static final String NOTE_KEY = "note";
 
-    @BindView(R.id.title_tv) TextView titleTV;
-    @BindView(R.id.text_tv) TextView textTV;
-    @BindView(R.id.delete_button) ImageButton deleteButton;
+    @BindView(R.id.title_tv)
+    TextView titleTV;
+    @BindView(R.id.text_tv)
+    TextView textTV;
+    @BindView(R.id.delete_button)
+    ImageButton deleteButton;
 
     public NoteViewHolder(View parent) {
         super(parent);
@@ -39,6 +45,7 @@ public class NoteViewHolder extends RecyclerView.ViewHolder {
     }
 
     public void bind(final Note note, final FinishedNoteListener listener) {
+
         textTV.setText(note.getText());
         titleTV.setText(note.getTitle());
         itemView.setOnClickListener(new View.OnClickListener() {
@@ -48,15 +55,38 @@ public class NoteViewHolder extends RecyclerView.ViewHolder {
             }
         });
 
+        final ViewPropertyAnimator animator = deleteButton.animate();
+
         deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                deleteNote(note, listener);
+                deleteButton.setEnabled(false);
+
+                animator.setDuration(150)
+                        .scaleXBy(-0.06f)
+                        .scaleYBy(-0.06f)
+                        .setListener(new AnimatorListenerAdapter() {
+                            @Override
+                            public void onAnimationEnd(Animator animation) {
+                                animator.scaleXBy(0.06f)
+                                        .scaleYBy(0.06f)
+                                        .setListener(null)
+                                        .withEndAction(new Runnable() {
+                                            @Override
+                                            public void run() {
+                                                deleteNote(note, listener);
+                                                deleteButton.setEnabled(true);
+                                            }
+                                        });
+                            }
+                        });
             }
         });
+
     }
 
-    private void editNote (Note note, FinishedNoteListener listener) {
+
+    private void editNote(Note note, FinishedNoteListener listener) {
         Bundle bundle = new Bundle();
         bundle.putSerializable(NOTE_KEY, note);
 

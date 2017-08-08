@@ -22,8 +22,11 @@ public class MainActivity extends AppCompatActivity implements FinishedNoteListe
     private static final String NOTE_DIALOG = "NoteDialog";
     private static final String TAG = MainActivity.class.getName(); // For logs.
 
-    @BindView(R.id.notes_rv) RecyclerView noteRecyclerView;
-    @BindView(R.id.fab) FloatingActionButton floationgActionButton;
+    @BindView(R.id.notes_rv)
+    RecyclerView noteRecyclerView;
+
+    @BindView(R.id.fab)
+    FloatingActionButton floatingActionButton;
 
     private NoteAdapter noteAdapter;
     private RealmResults<Note> notes;

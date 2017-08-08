@@ -12,11 +12,14 @@ import android.widget.Toast;
 import butterknife.BindString;
 import butterknife.BindView;
 import butterknife.ButterKnife;
+
 import c4q.notepad.model.Note;
+
 import io.realm.Realm;
 
 /**
- * Created by maxrosado on 7/19/17.
+ * This is the class that houses the dialog fragment for creating new notes and editing existing
+ * notes.
  */
 
 public class NoteDialogFragment extends android.support.v4.app.DialogFragment {
@@ -31,6 +34,7 @@ public class NoteDialogFragment extends android.support.v4.app.DialogFragment {
 
     @BindView(R.id.new_note_title_input)
     EditText titleEditText;
+
     @BindView(R.id.new_note_text_body_input)
     EditText noteEditText;
 
@@ -58,11 +62,12 @@ public class NoteDialogFragment extends android.support.v4.app.DialogFragment {
             }
         }
 
+
         return getAlertDialog(v, titleEditText, noteEditText);
     }
 
     private AlertDialog getAlertDialog(final View v, final EditText titleed, final EditText noteed) {
-        return new AlertDialog.Builder(getActivity())
+        final AlertDialog alertDialog = new AlertDialog.Builder(getActivity())
                 .setView(v)
                 .setTitle(dialogTitle)
                 .setPositiveButton("Save", new DialogInterface.OnClickListener() {
@@ -72,7 +77,7 @@ public class NoteDialogFragment extends android.support.v4.app.DialogFragment {
                         String titleText = String.valueOf(titleed.getText());
                         String noteText = String.valueOf(noteed.getText());
 
-                        if(!noteText.equals("") && !titleText.equals("")) {
+                        if (!noteText.equals("") && !titleText.equals("")) {
 
                             Realm realm = Realm.getDefaultInstance();
                             realm.beginTransaction();
@@ -99,6 +104,14 @@ public class NoteDialogFragment extends android.support.v4.app.DialogFragment {
                     }
                 })
                 .create();
+        alertDialog.setOnShowListener(new DialogInterface.OnShowListener() {
+            @Override
+            public void onShow(DialogInterface arg0) {
+                alertDialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(getResources().getColor(R.color.black));
+                alertDialog.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(getResources().getColor(R.color.black));
+            }
+        });
+        return alertDialog;
     }
 
 }

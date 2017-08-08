@@ -7,4 +7,5 @@
     <color name="colorTitleTop">#006699</color>
     <color name="colorTitleBottom">#5A6571</color>
     <color name="colorProgressCircle">#3b444b</color>
+    <color name="black">#000000</color>
 </resources>
